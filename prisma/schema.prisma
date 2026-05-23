@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  SUPERADMIN
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model StatistikUtama {
+  id        Int      @id @default(autoincrement())
+  label     String
+  nilai     String
+  satuan    String
+  tahun     Int
+  icon      String?
+  warna     String   @default("#2196F3")
+  urutan    Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model Indikator {
+  id        Int           @id @default(autoincrement())
+  nama      String
+  slug      String        @unique
+  satuan    String
+  kategori  String        @default("Lainnya")
+  tipeChart String        @default("bar")
+  deskripsi    String?       @db.Text
+  definisi     String?       @db.Text
+  metodologi   String?       @db.Text
+  sumberData   String?       @db.Text
+  interpretasi String?       @db.Text
+  aktif        Boolean       @default(true)
+  data      DataPoint[]
+  peta      PetaTematik[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model DataPoint {
+  id          Int       @id @default(autoincrement())
+  tahun       Int
+  daerah      String    @default("Toli-Toli")
+  kolom       String    @default("nilai")
+  nilai       Float
+  keterangan  String?
+  indikator   Indikator @relation(fields: [indikatorId], references: [id], onDelete: Cascade)
+  indikatorId Int
+  createdAt   DateTime  @default(now())
+
+  @@unique([tahun, daerah, kolom, indikatorId])
+}
+
+model JadwalRilis {
+  id        Int      @id @default(autoincrement())
+  judul     String
+  tanggal   DateTime
+  kategori  String   @default("Publikasi")
+  deskripsi String?  @db.Text
+  link      String?
+  status    String   @default("UPCOMING")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Infografis {
+  id          Int      @id @default(autoincrement())
+  judul       String
+  deskripsi   String?  @db.Text
+  imageUrl    String
+  urutan      Int      @default(0)
+  aktif       Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PetaTematik {
+  id          Int        @id @default(autoincrement())
+  judul       String
+  deskripsi   String?    @db.Text
+  imageUrl    String?
+  geoJsonUrl  String?
+  indikator   Indikator? @relation(fields: [indikatorId], references: [id])
+  indikatorId Int?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model SiteStats {
+  id         Int @id @default(1)
+  pengunjung Int @default(0)
+}
+
+model Pengaduan {
+  id             Int      @id @default(autoincrement())
+  namaLengkap    String
+  noIdentitas    String
+  fotoIdentitas  String
+  alamat         String   @db.Text
+  noTelpon       String
+  isiPengaduan   String   @db.Text
+  lampiran       String?
+  status         String   @default("BARU")
+  catatan        String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
