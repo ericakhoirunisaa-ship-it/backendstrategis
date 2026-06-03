@@ -42,6 +42,7 @@ export class PengaduanController {
     @Body('noIdentitas') noIdentitas: string,
     @Body('alamat') alamat: string,
     @Body('noTelpon') noTelpon: string,
+    @Body('email') email: string,
     @Body('isiPengaduan') isiPengaduan: string,
   ) {
     if (!namaLengkap || !noIdentitas || !alamat || !noTelpon || !isiPengaduan) {
@@ -56,7 +57,10 @@ export class PengaduanController {
       ? `/uploads/pengaduan/${files.lampiran[0].filename}`
       : undefined;
 
-    return this.service.create({ namaLengkap, noIdentitas, fotoIdentitas, alamat, noTelpon, isiPengaduan, lampiran });
+    return this.service.create({
+      namaLengkap, noIdentitas, fotoIdentitas, alamat,
+      noTelpon, email: email || undefined, isiPengaduan, lampiran,
+    });
   }
 
   @UseGuards(JwtAuthGuard)

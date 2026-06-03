@@ -115,6 +115,7 @@ model Pengaduan {
   fotoIdentitas  String
   alamat         String   @db.Text
   noTelpon       String
+  email          String?
   isiPengaduan   String   @db.Text
   lampiran       String?
   status         String   @default("BARU")

@@ -4,6 +4,7 @@ import { diskStorage } from 'multer';
 import { extname } from 'path';
 import { PengaduanController } from './pengaduan.controller';
 import { PengaduanService } from './pengaduan.service';
+import { NotificationService } from '../notification/notification.service';
 
 @Module({
   imports: [
@@ -27,6 +28,6 @@ import { PengaduanService } from './pengaduan.service';
     }),
   ],
   controllers: [PengaduanController],
-  providers: [PengaduanService],
+  providers: [PengaduanService, NotificationService],
 })
 export class PengaduanModule {}

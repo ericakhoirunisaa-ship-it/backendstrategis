@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const prisma_service_1 = require("./prisma/prisma.service");
 const prisma_module_1 = require("./prisma/prisma.module");
 const auth_module_1 = require("./auth/auth.module");
 const statistik_module_1 = require("./statistik/statistik.module");
@@ -40,7 +41,7 @@ exports.AppModule = AppModule = __decorate([
             stats_module_1.StatsModule,
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService, prisma_service_1.PrismaService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

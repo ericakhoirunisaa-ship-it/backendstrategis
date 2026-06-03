@@ -43,12 +43,14 @@ async function bootstrap() {
     app.setGlobalPrefix('api');
     app.use('/uploads', express.static((0, path_1.join)(process.cwd(), 'uploads')));
     app.useGlobalPipes(new common_1.ValidationPipe({ whitelist: true, transform: true }));
+    const frontendUrl = (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/+$/, '');
     app.enableCors({
-        origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+        origin: frontendUrl,
         credentials: true,
     });
-    await app.listen(process.env.PORT || 3001);
-    console.log(`Backend running on http://localhost:${process.env.PORT || 3001}`);
+    const port = process.env.PORT || 3001;
+    await app.listen(port);
+    console.log(`Backend running on port ${port} | CORS: ${frontendUrl}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

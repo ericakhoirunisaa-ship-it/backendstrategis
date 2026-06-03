@@ -1,9 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { NotificationService } from '../notification/notification.service';
 
 @Injectable()
 export class PengaduanService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private notification: NotificationService,
+  ) {}
 
   findAll() {
     return this.prisma.pengaduan.findMany({ orderBy: { createdAt: 'desc' } });
@@ -15,16 +19,25 @@ export class PengaduanService {
     return p;
   }
 
-  create(data: {
+  async create(data: {
     namaLengkap: string;
     noIdentitas: string;
     fotoIdentitas: string;
     alamat: string;
     noTelpon: string;
+    email?: string;
     isiPengaduan: string;
     lampiran?: string;
   }) {
-    return this.prisma.pengaduan.create({ data });
+    const pengaduan = await this.prisma.pengaduan.create({ data });
+
+    // Kirim notifikasi tanpa menggagalkan proses submit
+    void this.notification.kirimWhatsAppKonfirmasi(data.noTelpon, data.namaLengkap);
+    if (data.email) {
+      void this.notification.kirimEmailKonfirmasi(data.email, data.namaLengkap);
+    }
+
+    return pengaduan;
   }
 
   async update(id: number, data: { status?: string; catatan?: string }) {
