@@ -58,7 +58,7 @@ export class IndikatorService {
     return this.prisma.indikator.create({ data: { ...data, slug } });
   }
 
-  async update(id: number, data: { nama?: string; satuan?: string; kategori?: string; tipeChart?: string; deskripsi?: string; definisi?: string; metodologi?: string; sumberData?: string; interpretasi?: string; aktif?: boolean }) {
+  async update(id: number, data: { nama?: string; satuan?: string; kategori?: string; tipeChart?: string; deskripsi?: string; definisi?: string; metodologi?: string; sumberData?: string; interpretasi?: string; aktif?: boolean; filterTahun?: boolean; filterDaerah?: boolean; filterKolom?: boolean }) {
     const existing = await this.prisma.indikator.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException(`Indikator #${id} tidak ditemukan`);
     return this.prisma.indikator.update({ where: { id }, data });

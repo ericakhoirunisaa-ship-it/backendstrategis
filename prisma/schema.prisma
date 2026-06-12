@@ -48,6 +48,9 @@ model Indikator {
   sumberData   String?       @db.Text
   interpretasi String?       @db.Text
   aktif        Boolean       @default(true)
+  filterTahun  Boolean       @default(true)
+  filterDaerah Boolean       @default(true)
+  filterKolom  Boolean       @default(true)
   data      DataPoint[]
   peta      PetaTematik[]
   createdAt DateTime      @default(now())

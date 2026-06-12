@@ -27,6 +27,9 @@ class UpdateIndikatorDto {
   @IsOptional() @IsString() sumberData?: string;
   @IsOptional() @IsString() interpretasi?: string;
   @IsOptional() @IsBoolean() aktif?: boolean;
+  @IsOptional() @IsBoolean() filterTahun?: boolean;
+  @IsOptional() @IsBoolean() filterDaerah?: boolean;
+  @IsOptional() @IsBoolean() filterKolom?: boolean;
 }
 
 class AddDataPointDto {
