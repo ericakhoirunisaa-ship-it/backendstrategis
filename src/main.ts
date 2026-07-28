@@ -1,12 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, RequestMethod } from '@nestjs/common';
 import { join } from 'path';
 import * as express from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api', {
+    exclude: [{ path: '/', method: RequestMethod.GET }],
+  });
   // Sajikan folder uploads sebagai file statis di /uploads
   app.use('/uploads', express.static(join(process.cwd(), 'uploads')));
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
