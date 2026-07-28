@@ -94,6 +94,10 @@ export class IndikatorService {
     });
   }
 
+  async updateDataPointKeterangan(id: number, keterangan: string | null) {
+    return this.prisma.dataPoint.update({ where: { id }, data: { keterangan } });
+  }
+
   async bulkUpsertDataPoints(indikatorId: number, points: Array<{ tahun: number; daerah?: string; kolom?: string; nilai: number; keterangan?: string }>) {
     const results: any[] = [];
     for (const p of points) {

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, Query, UseGuards, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete, Param, Body, Query, UseGuards, ParseIntPipe } from '@nestjs/common';
 import { IndikatorService } from './indikator.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IsString, IsOptional, IsBoolean, IsNumber, IsInt } from 'class-validator';
@@ -40,6 +40,10 @@ class AddDataPointDto {
   @IsOptional() @IsString() keterangan?: string;
 }
 
+class UpdateDataPointKeteranganDto {
+  @IsOptional() @IsString() keterangan?: string;
+}
+
 @Controller('indikator')
 export class IndikatorController {
   constructor(private service: IndikatorService) {}
@@ -71,5 +75,14 @@ export class IndikatorController {
   @Post(':id/data')
   addData(@Param('id', ParseIntPipe) id: number, @Body() dto: AddDataPointDto) {
     return this.service.addDataPoint(id, dto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('datapoint/:id')
+  updateDataPointKeterangan(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateDataPointKeteranganDto,
+  ) {
+    return this.service.updateDataPointKeterangan(id, dto.keterangan ?? null);
   }
 }
