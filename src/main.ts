@@ -10,7 +10,15 @@ async function bootstrap() {
     exclude: [{ path: '/', method: RequestMethod.GET }],
   });
   // Sajikan folder uploads sebagai file statis di /uploads
-  app.use('/uploads', express.static(join(process.cwd(), 'uploads')));
+  // Header CORS harus ditambah manual karena express.static jalan sebelum NestJS enableCors
+  app.use(
+    '/uploads',
+    (req: express.Request, res: express.Response, next: express.NextFunction) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      next();
+    },
+    express.static(join(process.cwd(), 'uploads')),
+  );
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   const allowedOrigins = [
     'http://localhost:3000',
