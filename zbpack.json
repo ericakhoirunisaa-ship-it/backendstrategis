@@ -1,4 +1,4 @@
 {
-  "build_command": "npm install && npx prisma generate && npm run build",
+  "build_command": "npm install --omit=dev && npx prisma generate",
   "start_command": "npm run start:prod"
 }
