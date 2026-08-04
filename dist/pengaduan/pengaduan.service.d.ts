@@ -6,11 +6,11 @@ export declare class PengaduanService {
     constructor(prisma: PrismaService, notification: NotificationService);
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -21,11 +21,11 @@ export declare class PengaduanService {
     }[]>;
     findOne(id: number): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -45,11 +45,11 @@ export declare class PengaduanService {
         lampiran?: string;
     }): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -63,11 +63,11 @@ export declare class PengaduanService {
         catatan?: string;
     }): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -78,11 +78,11 @@ export declare class PengaduanService {
     }>;
     remove(id: number): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;

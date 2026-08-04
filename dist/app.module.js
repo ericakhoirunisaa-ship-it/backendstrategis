@@ -22,6 +22,7 @@ const peta_tematik_module_1 = require("./peta-tematik/peta-tematik.module");
 const infografis_module_1 = require("./infografis/infografis.module");
 const pengaduan_module_1 = require("./pengaduan/pengaduan.module");
 const stats_module_1 = require("./stats/stats.module");
+const indikator_bulanan_module_1 = require("./indikator-bulanan/indikator-bulanan.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -39,6 +40,7 @@ exports.AppModule = AppModule = __decorate([
             infografis_module_1.InfografisModule,
             pengaduan_module_1.PengaduanModule,
             stats_module_1.StatsModule,
+            indikator_bulanan_module_1.IndikatorBulananModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, prisma_service_1.PrismaService],

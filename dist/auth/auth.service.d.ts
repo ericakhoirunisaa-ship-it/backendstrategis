@@ -15,9 +15,9 @@ export declare class AuthService {
     }>;
     getProfile(userId: number): Promise<{
         id: number;
-        email: string;
-        name: string;
-        role: import(".prisma/client").$Enums.Role;
         createdAt: Date;
+        name: string;
+        email: string;
+        role: import(".prisma/client").$Enums.Role;
     }>;
 }

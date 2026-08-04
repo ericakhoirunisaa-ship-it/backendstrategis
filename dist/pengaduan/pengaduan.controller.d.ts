@@ -8,11 +8,11 @@ export declare class PengaduanController {
     constructor(service: PengaduanService);
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -23,11 +23,11 @@ export declare class PengaduanController {
     }[]>;
     findOne(id: number): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -41,11 +41,11 @@ export declare class PengaduanController {
         lampiran?: Express.Multer.File[];
     }, namaLengkap: string, noIdentitas: string, alamat: string, noTelpon: string, email: string, isiPengaduan: string): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -56,11 +56,11 @@ export declare class PengaduanController {
     }>;
     update(id: number, dto: UpdatePengaduanDto): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -71,11 +71,11 @@ export declare class PengaduanController {
     }>;
     remove(id: number): Promise<{
         id: number;
-        email: string | null;
         createdAt: Date;
         updatedAt: Date;
-        status: string;
+        email: string | null;
         catatan: string | null;
+        status: string;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;

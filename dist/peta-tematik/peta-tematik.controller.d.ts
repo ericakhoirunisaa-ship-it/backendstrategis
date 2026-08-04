@@ -24,9 +24,9 @@ export declare class PetaTematikController {
         } | null;
     } & {
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -35,14 +35,12 @@ export declare class PetaTematikController {
     findOne(id: number): Promise<{
         indikator: {
             id: number;
-            createdAt: Date;
-            updatedAt: Date;
-            satuan: string;
-            deskripsi: string | null;
-            kategori: string;
             nama: string;
             slug: string;
+            satuan: string;
+            kategori: string;
             tipeChart: string;
+            deskripsi: string | null;
             definisi: string | null;
             metodologi: string | null;
             sumberData: string | null;
@@ -51,12 +49,16 @@ export declare class PetaTematikController {
             filterTahun: boolean;
             filterDaerah: boolean;
             filterKolom: boolean;
+            defaultTampilan: string;
+            labelDaerah: string | null;
+            createdAt: Date;
+            updatedAt: Date;
         } | null;
     } & {
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -64,9 +66,9 @@ export declare class PetaTematikController {
     }>;
     create(dto: CreatePetaDto): import(".prisma/client").Prisma.Prisma__PetaTematikClient<{
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -74,9 +76,9 @@ export declare class PetaTematikController {
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     update(id: number, dto: UpdatePetaDto): Promise<{
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -84,9 +86,9 @@ export declare class PetaTematikController {
     }>;
     remove(id: number): Promise<{
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;

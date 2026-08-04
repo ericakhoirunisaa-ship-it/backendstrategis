@@ -4,12 +4,12 @@ export declare class InfografisService {
     constructor(prisma: PrismaService);
     findAll(onlyAktif?: boolean): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        urutan: number;
         deskripsi: string | null;
         aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         judul: string;
+        urutan: number;
         imageUrl: string;
     }[]>;
     create(data: {
@@ -19,12 +19,12 @@ export declare class InfografisService {
         urutan?: number;
     }): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        urutan: number;
         deskripsi: string | null;
         aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         judul: string;
+        urutan: number;
         imageUrl: string;
     }>;
     update(id: number, data: {
@@ -34,22 +34,22 @@ export declare class InfografisService {
         aktif?: boolean;
     }): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        urutan: number;
         deskripsi: string | null;
         aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         judul: string;
+        urutan: number;
         imageUrl: string;
     }>;
     remove(id: number): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        urutan: number;
         deskripsi: string | null;
         aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         judul: string;
+        urutan: number;
         imageUrl: string;
     }>;
 }

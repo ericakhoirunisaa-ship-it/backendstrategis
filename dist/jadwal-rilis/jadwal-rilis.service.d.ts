@@ -4,23 +4,23 @@ export declare class JadwalRilisService {
     constructor(prisma: PrismaService);
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
+        kategori: string;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        link: string | null;
-        deskripsi: string | null;
-        kategori: string;
         judul: string;
+        link: string | null;
         tanggal: Date;
         status: string;
     }[]>;
     findUpcoming(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
+        kategori: string;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        link: string | null;
-        deskripsi: string | null;
-        kategori: string;
         judul: string;
+        link: string | null;
         tanggal: Date;
         status: string;
     }[]>;
@@ -32,12 +32,12 @@ export declare class JadwalRilisService {
         link?: string;
     }): Promise<{
         id: number;
+        kategori: string;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        link: string | null;
-        deskripsi: string | null;
-        kategori: string;
         judul: string;
+        link: string | null;
         tanggal: Date;
         status: string;
     }>;
@@ -50,23 +50,23 @@ export declare class JadwalRilisService {
         status?: string;
     }): Promise<{
         id: number;
+        kategori: string;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        link: string | null;
-        deskripsi: string | null;
-        kategori: string;
         judul: string;
+        link: string | null;
         tanggal: Date;
         status: string;
     }>;
     remove(id: number): Promise<{
         id: number;
+        kategori: string;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        link: string | null;
-        deskripsi: string | null;
-        kategori: string;
         judul: string;
+        link: string | null;
         tanggal: Date;
         status: string;
     }>;

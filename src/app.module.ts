@@ -13,6 +13,7 @@ import { PetaTematikModule } from './peta-tematik/peta-tematik.module';
 import { InfografisModule } from './infografis/infografis.module';
 import { PengaduanModule } from './pengaduan/pengaduan.module';
 import { StatsModule } from './stats/stats.module';
+import { IndikatorBulananModule } from './indikator-bulanan/indikator-bulanan.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { StatsModule } from './stats/stats.module';
     InfografisModule,
     PengaduanModule,
     StatsModule,
+    IndikatorBulananModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

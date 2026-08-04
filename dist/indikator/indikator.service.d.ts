@@ -7,14 +7,12 @@ export declare class IndikatorService {
         kategori?: string;
     }): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        satuan: string;
-        deskripsi: string | null;
-        kategori: string;
         nama: string;
         slug: string;
+        satuan: string;
+        kategori: string;
         tipeChart: string;
+        deskripsi: string | null;
         definisi: string | null;
         metodologi: string | null;
         sumberData: string | null;
@@ -23,28 +21,30 @@ export declare class IndikatorService {
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
+        defaultTampilan: string;
+        labelDaerah: string | null;
+        createdAt: Date;
+        updatedAt: Date;
     }[]>;
     findBySlug(slug: string): Promise<{
         data: {
             id: number;
             createdAt: Date;
-            nilai: number;
-            tahun: number;
             daerah: string;
+            tahun: number;
             kolom: string;
+            nilai: number;
             keterangan: string | null;
             indikatorId: number;
         }[];
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        satuan: string;
-        deskripsi: string | null;
-        kategori: string;
         nama: string;
         slug: string;
+        satuan: string;
+        kategori: string;
         tipeChart: string;
+        deskripsi: string | null;
         definisi: string | null;
         metodologi: string | null;
         sumberData: string | null;
@@ -53,6 +53,10 @@ export declare class IndikatorService {
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
+        defaultTampilan: string;
+        labelDaerah: string | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     create(data: {
         nama: string;
@@ -65,16 +69,16 @@ export declare class IndikatorService {
         metodologi?: string;
         sumberData?: string;
         interpretasi?: string;
+        defaultTampilan?: string;
+        labelDaerah?: string;
     }): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        satuan: string;
-        deskripsi: string | null;
-        kategori: string;
         nama: string;
         slug: string;
+        satuan: string;
+        kategori: string;
         tipeChart: string;
+        deskripsi: string | null;
         definisi: string | null;
         metodologi: string | null;
         sumberData: string | null;
@@ -83,6 +87,10 @@ export declare class IndikatorService {
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
+        defaultTampilan: string;
+        labelDaerah: string | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     update(id: number, data: {
         nama?: string;
@@ -98,16 +106,16 @@ export declare class IndikatorService {
         filterTahun?: boolean;
         filterDaerah?: boolean;
         filterKolom?: boolean;
+        defaultTampilan?: string;
+        labelDaerah?: string;
     }): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        satuan: string;
-        deskripsi: string | null;
-        kategori: string;
         nama: string;
         slug: string;
+        satuan: string;
+        kategori: string;
         tipeChart: string;
+        deskripsi: string | null;
         definisi: string | null;
         metodologi: string | null;
         sumberData: string | null;
@@ -116,17 +124,19 @@ export declare class IndikatorService {
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
+        defaultTampilan: string;
+        labelDaerah: string | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     remove(id: number): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        satuan: string;
-        deskripsi: string | null;
-        kategori: string;
         nama: string;
         slug: string;
+        satuan: string;
+        kategori: string;
         tipeChart: string;
+        deskripsi: string | null;
         definisi: string | null;
         metodologi: string | null;
         sumberData: string | null;
@@ -135,6 +145,10 @@ export declare class IndikatorService {
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
+        defaultTampilan: string;
+        labelDaerah: string | null;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     addDataPoint(indikatorId: number, point: {
         tahun: number;
@@ -145,20 +159,20 @@ export declare class IndikatorService {
     }): Promise<{
         id: number;
         createdAt: Date;
-        nilai: number;
-        tahun: number;
         daerah: string;
+        tahun: number;
         kolom: string;
+        nilai: number;
         keterangan: string | null;
         indikatorId: number;
     }>;
     updateDataPointKeterangan(id: number, keterangan: string | null): Promise<{
         id: number;
         createdAt: Date;
-        nilai: number;
-        tahun: number;
         daerah: string;
+        tahun: number;
         kolom: string;
+        nilai: number;
         keterangan: string | null;
         indikatorId: number;
     }>;

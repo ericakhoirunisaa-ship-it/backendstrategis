@@ -10,9 +10,9 @@ export declare class PetaTematikService {
         } | null;
     } & {
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -21,14 +21,12 @@ export declare class PetaTematikService {
     findOne(id: number): Promise<{
         indikator: {
             id: number;
-            createdAt: Date;
-            updatedAt: Date;
-            satuan: string;
-            deskripsi: string | null;
-            kategori: string;
             nama: string;
             slug: string;
+            satuan: string;
+            kategori: string;
             tipeChart: string;
+            deskripsi: string | null;
             definisi: string | null;
             metodologi: string | null;
             sumberData: string | null;
@@ -37,12 +35,16 @@ export declare class PetaTematikService {
             filterTahun: boolean;
             filterDaerah: boolean;
             filterKolom: boolean;
+            defaultTampilan: string;
+            labelDaerah: string | null;
+            createdAt: Date;
+            updatedAt: Date;
         } | null;
     } & {
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -56,9 +58,9 @@ export declare class PetaTematikService {
         indikatorId?: number;
     }): import(".prisma/client").Prisma.Prisma__PetaTematikClient<{
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -72,9 +74,9 @@ export declare class PetaTematikService {
         indikatorId?: number;
     }): Promise<{
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
@@ -82,9 +84,9 @@ export declare class PetaTematikService {
     }>;
     remove(id: number): Promise<{
         id: number;
+        deskripsi: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deskripsi: string | null;
         indikatorId: number | null;
         judul: string;
         imageUrl: string | null;
