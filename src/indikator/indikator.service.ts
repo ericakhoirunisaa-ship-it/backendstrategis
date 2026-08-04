@@ -48,7 +48,7 @@ export class IndikatorService {
     return ind;
   }
 
-  async create(data: { nama: string; slug?: string; satuan: string; kategori?: string; tipeChart?: string; deskripsi?: string; definisi?: string; metodologi?: string; sumberData?: string; interpretasi?: string }) {
+  async create(data: { nama: string; slug?: string; satuan: string; kategori?: string; tipeChart?: string; deskripsi?: string; definisi?: string; metodologi?: string; sumberData?: string; interpretasi?: string; defaultTampilan?: string; labelDaerah?: string }) {
     const base = data.slug || slugify(data.nama);
     let slug = base;
     let counter = 1;
@@ -58,7 +58,7 @@ export class IndikatorService {
     return this.prisma.indikator.create({ data: { ...data, slug } });
   }
 
-  async update(id: number, data: { nama?: string; satuan?: string; kategori?: string; tipeChart?: string; deskripsi?: string; definisi?: string; metodologi?: string; sumberData?: string; interpretasi?: string; aktif?: boolean; filterTahun?: boolean; filterDaerah?: boolean; filterKolom?: boolean }) {
+  async update(id: number, data: { nama?: string; satuan?: string; kategori?: string; tipeChart?: string; deskripsi?: string; definisi?: string; metodologi?: string; sumberData?: string; interpretasi?: string; aktif?: boolean; filterTahun?: boolean; filterDaerah?: boolean; filterKolom?: boolean; defaultTampilan?: string; labelDaerah?: string }) {
     const existing = await this.prisma.indikator.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException(`Indikator #${id} tidak ditemukan`);
     return this.prisma.indikator.update({ where: { id }, data });
