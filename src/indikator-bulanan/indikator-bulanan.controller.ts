@@ -17,6 +17,17 @@ export class IndikatorBulananController {
     return this.service.findAllAdmin();
   }
 
+  @Get('strategis-years')
+  async findStrategisYears() {
+    const years = await this.service.findStrategisYears();
+    return { years };
+  }
+
+  @Get('combined')
+  findCombined(@Query('bulan') bulan?: string, @Query('tahun') tahun?: string) {
+    return this.service.findCombined(bulan ? +bulan : undefined, tahun ? +tahun : undefined);
+  }
+
   @Post()
   @UseGuards(JwtAuthGuard)
   create(@Body() body: any) {
