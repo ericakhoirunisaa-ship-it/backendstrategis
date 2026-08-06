@@ -146,3 +146,32 @@ model IndikatorBulanan {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
+
+model PortalDaerahDataset {
+  id            Int               @id @default(autoincrement())
+  judul         String
+  dinas         String
+  bidang        String
+  topik         String
+  tahunMulai    Int
+  tahunAkhir    Int
+  deskripsi     String?           @db.Text
+  tanggalUpdate String            @default("")
+  dilihat       Int               @default(0)
+  icon          String            @default("Database")
+  iconBg        String            @default("#DBEAFE")
+  iconColor     String            @default("#1D6FCA")
+  columns       Json
+  aktif         Boolean           @default(true)
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  rows          PortalDaerahRow[]
+}
+
+model PortalDaerahRow {
+  id        Int                 @id @default(autoincrement())
+  datasetId Int
+  dataset   PortalDaerahDataset @relation(fields: [datasetId], references: [id], onDelete: Cascade)
+  data      Json
+  urutan    Int                 @default(0)
+}

@@ -4,22 +4,22 @@ export declare class JadwalRilisService {
     constructor(prisma: PrismaService);
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        kategori: string;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
+        kategori: string;
+        deskripsi: string | null;
         link: string | null;
         tanggal: Date;
         status: string;
     }[]>;
     findUpcoming(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        kategori: string;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
+        kategori: string;
+        deskripsi: string | null;
         link: string | null;
         tanggal: Date;
         status: string;
@@ -32,11 +32,11 @@ export declare class JadwalRilisService {
         link?: string;
     }): Promise<{
         id: number;
-        kategori: string;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
+        kategori: string;
+        deskripsi: string | null;
         link: string | null;
         tanggal: Date;
         status: string;
@@ -50,22 +50,22 @@ export declare class JadwalRilisService {
         status?: string;
     }): Promise<{
         id: number;
-        kategori: string;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
+        kategori: string;
+        deskripsi: string | null;
         link: string | null;
         tanggal: Date;
         status: string;
     }>;
     remove(id: number): Promise<{
         id: number;
-        kategori: string;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
+        kategori: string;
+        deskripsi: string | null;
         link: string | null;
         tanggal: Date;
         status: string;

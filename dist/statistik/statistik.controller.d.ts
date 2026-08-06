@@ -22,47 +22,47 @@ export declare class StatistikController {
     constructor(service: StatistikService);
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }[]>;
     create(dto: CreateStatistikDto): Promise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }>;
     update(id: number, dto: UpdateStatistikDto): Promise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }>;
     delete(id: number): Promise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }>;
 }
 export {};

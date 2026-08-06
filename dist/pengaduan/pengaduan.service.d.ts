@@ -9,8 +9,8 @@ export declare class PengaduanService {
         createdAt: Date;
         updatedAt: Date;
         email: string | null;
-        catatan: string | null;
         status: string;
+        catatan: string | null;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -24,8 +24,8 @@ export declare class PengaduanService {
         createdAt: Date;
         updatedAt: Date;
         email: string | null;
-        catatan: string | null;
         status: string;
+        catatan: string | null;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -48,8 +48,8 @@ export declare class PengaduanService {
         createdAt: Date;
         updatedAt: Date;
         email: string | null;
-        catatan: string | null;
         status: string;
+        catatan: string | null;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -66,8 +66,8 @@ export declare class PengaduanService {
         createdAt: Date;
         updatedAt: Date;
         email: string | null;
-        catatan: string | null;
         status: string;
+        catatan: string | null;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;
@@ -81,8 +81,8 @@ export declare class PengaduanService {
         createdAt: Date;
         updatedAt: Date;
         email: string | null;
-        catatan: string | null;
         status: string;
+        catatan: string | null;
         namaLengkap: string;
         noIdentitas: string;
         fotoIdentitas: string;

@@ -7,9 +7,12 @@ export declare class IndikatorService {
         kategori?: string;
     }): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
+        satuan: string;
+        aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         nama: string;
         slug: string;
-        satuan: string;
         kategori: string;
         tipeChart: string;
         deskripsi: string | null;
@@ -17,31 +20,31 @@ export declare class IndikatorService {
         metodologi: string | null;
         sumberData: string | null;
         interpretasi: string | null;
-        aktif: boolean;
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
         defaultTampilan: string;
         labelDaerah: string | null;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     findBySlug(slug: string): Promise<{
         data: {
             id: number;
-            createdAt: Date;
-            daerah: string;
-            tahun: number;
-            kolom: string;
             nilai: number;
             keterangan: string | null;
+            tahun: number;
+            createdAt: Date;
+            daerah: string;
+            kolom: string;
             indikatorId: number;
         }[];
     } & {
         id: number;
+        satuan: string;
+        aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         nama: string;
         slug: string;
-        satuan: string;
         kategori: string;
         tipeChart: string;
         deskripsi: string | null;
@@ -49,14 +52,11 @@ export declare class IndikatorService {
         metodologi: string | null;
         sumberData: string | null;
         interpretasi: string | null;
-        aktif: boolean;
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
         defaultTampilan: string;
         labelDaerah: string | null;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     create(data: {
         nama: string;
@@ -73,9 +73,12 @@ export declare class IndikatorService {
         labelDaerah?: string;
     }): Promise<{
         id: number;
+        satuan: string;
+        aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         nama: string;
         slug: string;
-        satuan: string;
         kategori: string;
         tipeChart: string;
         deskripsi: string | null;
@@ -83,14 +86,11 @@ export declare class IndikatorService {
         metodologi: string | null;
         sumberData: string | null;
         interpretasi: string | null;
-        aktif: boolean;
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
         defaultTampilan: string;
         labelDaerah: string | null;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     update(id: number, data: {
         nama?: string;
@@ -110,9 +110,12 @@ export declare class IndikatorService {
         labelDaerah?: string;
     }): Promise<{
         id: number;
+        satuan: string;
+        aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         nama: string;
         slug: string;
-        satuan: string;
         kategori: string;
         tipeChart: string;
         deskripsi: string | null;
@@ -120,20 +123,20 @@ export declare class IndikatorService {
         metodologi: string | null;
         sumberData: string | null;
         interpretasi: string | null;
-        aktif: boolean;
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
         defaultTampilan: string;
         labelDaerah: string | null;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     remove(id: number): Promise<{
         id: number;
+        satuan: string;
+        aktif: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         nama: string;
         slug: string;
-        satuan: string;
         kategori: string;
         tipeChart: string;
         deskripsi: string | null;
@@ -141,14 +144,11 @@ export declare class IndikatorService {
         metodologi: string | null;
         sumberData: string | null;
         interpretasi: string | null;
-        aktif: boolean;
         filterTahun: boolean;
         filterDaerah: boolean;
         filterKolom: boolean;
         defaultTampilan: string;
         labelDaerah: string | null;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     addDataPoint(indikatorId: number, point: {
         tahun: number;
@@ -158,22 +158,22 @@ export declare class IndikatorService {
         keterangan?: string;
     }): Promise<{
         id: number;
-        createdAt: Date;
-        daerah: string;
-        tahun: number;
-        kolom: string;
         nilai: number;
         keterangan: string | null;
+        tahun: number;
+        createdAt: Date;
+        daerah: string;
+        kolom: string;
         indikatorId: number;
     }>;
     updateDataPointKeterangan(id: number, keterangan: string | null): Promise<{
         id: number;
-        createdAt: Date;
-        daerah: string;
-        tahun: number;
-        kolom: string;
         nilai: number;
         keterangan: string | null;
+        tahun: number;
+        createdAt: Date;
+        daerah: string;
+        kolom: string;
         indikatorId: number;
     }>;
     bulkUpsertDataPoints(indikatorId: number, points: Array<{

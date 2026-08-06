@@ -27,6 +27,13 @@ let IndikatorBulananController = class IndikatorBulananController {
     findAllAdmin() {
         return this.service.findAllAdmin();
     }
+    async findStrategisYears() {
+        const years = await this.service.findStrategisYears();
+        return { years };
+    }
+    findCombined(bulan, tahun) {
+        return this.service.findCombined(bulan ? +bulan : undefined, tahun ? +tahun : undefined);
+    }
     create(body) {
         return this.service.create(body);
     }
@@ -53,6 +60,20 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], IndikatorBulananController.prototype, "findAllAdmin", null);
+__decorate([
+    (0, common_1.Get)('strategis-years'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], IndikatorBulananController.prototype, "findStrategisYears", null);
+__decorate([
+    (0, common_1.Get)('combined'),
+    __param(0, (0, common_1.Query)('bulan')),
+    __param(1, (0, common_1.Query)('tahun')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], IndikatorBulananController.prototype, "findCombined", null);
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),

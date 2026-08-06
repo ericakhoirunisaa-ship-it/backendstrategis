@@ -10,42 +10,42 @@ export declare class InfografisController {
     constructor(service: InfografisService);
     findAll(all?: string): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
+        urutan: number;
         aktif: boolean;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
-        urutan: number;
+        deskripsi: string | null;
         imageUrl: string;
     }[]>;
     create(file: Express.Multer.File, judul: string, deskripsi?: string, urutan?: string): Promise<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
+        urutan: number;
         aktif: boolean;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
-        urutan: number;
+        deskripsi: string | null;
         imageUrl: string;
     }>;
     update(id: number, dto: UpdateInfografisDto): Promise<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
+        urutan: number;
         aktif: boolean;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
-        urutan: number;
+        deskripsi: string | null;
         imageUrl: string;
     }>;
     remove(id: number): Promise<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
+        urutan: number;
         aktif: boolean;
         createdAt: Date;
         updatedAt: Date;
-        judul: string;
-        urutan: number;
+        deskripsi: string | null;
         imageUrl: string;
     }>;
 }

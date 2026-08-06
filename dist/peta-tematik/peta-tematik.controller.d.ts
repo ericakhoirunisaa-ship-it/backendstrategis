@@ -24,20 +24,23 @@ export declare class PetaTematikController {
         } | null;
     } & {
         id: number;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
         indikatorId: number | null;
-        judul: string;
+        deskripsi: string | null;
         imageUrl: string | null;
         geoJsonUrl: string | null;
     })[]>;
     findOne(id: number): Promise<{
         indikator: {
             id: number;
+            satuan: string;
+            aktif: boolean;
+            createdAt: Date;
+            updatedAt: Date;
             nama: string;
             slug: string;
-            satuan: string;
             kategori: string;
             tipeChart: string;
             deskripsi: string | null;
@@ -45,52 +48,49 @@ export declare class PetaTematikController {
             metodologi: string | null;
             sumberData: string | null;
             interpretasi: string | null;
-            aktif: boolean;
             filterTahun: boolean;
             filterDaerah: boolean;
             filterKolom: boolean;
             defaultTampilan: string;
             labelDaerah: string | null;
-            createdAt: Date;
-            updatedAt: Date;
         } | null;
     } & {
         id: number;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
         indikatorId: number | null;
-        judul: string;
+        deskripsi: string | null;
         imageUrl: string | null;
         geoJsonUrl: string | null;
     }>;
     create(dto: CreatePetaDto): import(".prisma/client").Prisma.Prisma__PetaTematikClient<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
         indikatorId: number | null;
-        judul: string;
+        deskripsi: string | null;
         imageUrl: string | null;
         geoJsonUrl: string | null;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     update(id: number, dto: UpdatePetaDto): Promise<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
         indikatorId: number | null;
-        judul: string;
+        deskripsi: string | null;
         imageUrl: string | null;
         geoJsonUrl: string | null;
     }>;
     remove(id: number): Promise<{
         id: number;
-        deskripsi: string | null;
+        judul: string;
         createdAt: Date;
         updatedAt: Date;
         indikatorId: number | null;
-        judul: string;
+        deskripsi: string | null;
         imageUrl: string | null;
         geoJsonUrl: string | null;
     }>;

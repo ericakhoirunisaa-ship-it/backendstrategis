@@ -4,14 +4,14 @@ export declare class StatistikService {
     constructor(prisma: PrismaService);
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }[]>;
     create(data: {
         label: string;
@@ -23,14 +23,14 @@ export declare class StatistikService {
         urutan?: number;
     }): Promise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }>;
     update(id: number, data: {
         label?: string;
@@ -42,24 +42,24 @@ export declare class StatistikService {
         urutan?: number;
     }): Promise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }>;
     delete(id: number): Promise<{
         id: number;
-        satuan: string;
-        updatedAt: Date;
-        tahun: number;
         nilai: string;
+        satuan: string;
         warna: string;
         urutan: number;
-        label: string;
+        tahun: number;
+        updatedAt: Date;
         icon: string | null;
+        label: string;
     }>;
 }
