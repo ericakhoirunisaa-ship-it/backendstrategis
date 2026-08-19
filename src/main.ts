@@ -2,9 +2,15 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe, RequestMethod } from '@nestjs/common';
 import { join } from 'path';
+import { mkdirSync } from 'fs';
 import * as express from 'express';
 
 async function bootstrap() {
+  // Pastikan folder upload selalu ada sebelum Multer butuh menulis
+  for (const dir of ['infografis', 'pengaduan', 'peta-tematik']) {
+    mkdirSync(join(process.cwd(), 'uploads', dir), { recursive: true });
+  }
+
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api', {
     exclude: [{ path: '/', method: RequestMethod.GET }],
