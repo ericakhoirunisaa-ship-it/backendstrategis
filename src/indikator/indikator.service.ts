@@ -64,6 +64,13 @@ export class IndikatorService {
     return this.prisma.indikator.update({ where: { id }, data });
   }
 
+  async clearData(id: number) {
+    const existing = await this.prisma.indikator.findUnique({ where: { id } });
+    if (!existing) throw new NotFoundException(`Indikator #${id} tidak ditemukan`);
+    const { count } = await this.prisma.dataPoint.deleteMany({ where: { indikatorId: id } });
+    return { deleted: count };
+  }
+
   async remove(id: number) {
     const existing = await this.prisma.indikator.findUnique({ where: { id } });
     if (!existing) throw new NotFoundException(`Indikator #${id} tidak ditemukan`);

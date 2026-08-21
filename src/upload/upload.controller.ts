@@ -22,8 +22,9 @@ export class UploadController {
     @Param('indikatorId', ParseIntPipe) indikatorId: number,
     @UploadedFile() file: Express.Multer.File,
     @Query('kolom') kolom?: string,
+    @Query('replace') replace?: string,
   ) {
     if (!file) throw new BadRequestException('File tidak ditemukan');
-    return this.service.importCsv(file.path, indikatorId, kolom);
+    return this.service.importCsv(file.path, indikatorId, kolom, replace === 'true');
   }
 }

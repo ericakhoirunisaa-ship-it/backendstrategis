@@ -81,6 +81,7 @@ export class UploadService {
     filePath: string,
     indikatorId: number,
     kolomNilai?: string,
+    replace = false,
   ): Promise<{ inserted: number; errors: string[] }> {
     const content = readFileSync(filePath, 'utf-8');
     let records: any[];
@@ -198,6 +199,10 @@ export class UploadService {
       throw new BadRequestException(
         'Tidak ada data valid yang bisa diimpor.',
       );
+    }
+
+    if (replace) {
+      await this.indikatorService.clearData(indikatorId);
     }
 
     const result = await this.indikatorService.bulkUpsertDataPoints(indikatorId, points);
