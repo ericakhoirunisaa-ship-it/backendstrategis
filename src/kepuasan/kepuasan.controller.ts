@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UseGuards, BadRequestException } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards, BadRequestException, ParseIntPipe } from '@nestjs/common';
 import { KepuasanService } from './kepuasan.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
@@ -20,8 +20,14 @@ export class KepuasanController {
       k1: +body.k1, k2: +body.k2, k3: +body.k3, k4: +body.k4, k5: +body.k5,
       s1: +body.s1, s2: +body.s2, s3: +body.s3, s4: +body.s4,
       nama: body.nama || undefined,
-      instansi: body.instansi || undefined,
+      saran: body.saran || undefined,
     });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('stats')
+  getStats() {
+    return this.service.getStats();
   }
 
   @UseGuards(JwtAuthGuard)
@@ -31,8 +37,20 @@ export class KepuasanController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('stats')
-  getStats() {
-    return this.service.getStats();
+  @Get(':id')
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.service.findOne(id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() body: any) {
+    return this.service.update(id, body);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.service.remove(id);
   }
 }

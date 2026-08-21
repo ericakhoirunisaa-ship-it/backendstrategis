@@ -197,6 +197,6 @@ model SurveiKepuasan {
   s4        Int
   // Opsional
   nama      String?
-  instansi  String?
+  saran     String?  @db.Text
   createdAt DateTime @default(now())
 }

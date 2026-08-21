@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 
 type SubmitDto = {
   u1: number; u2: number; u3: number; u4: number; u5: number;
   k1: number; k2: number; k3: number; k4: number; k5: number;
   s1: number; s2: number; s3: number; s4: number;
-  nama?: string; instansi?: string;
+  nama?: string; saran?: string;
 };
 
 @Injectable()
@@ -20,10 +20,26 @@ export class KepuasanService {
     return this.prisma.surveiKepuasan.findMany({ orderBy: { createdAt: 'desc' } });
   }
 
+  async findOne(id: number) {
+    const row = await this.prisma.surveiKepuasan.findUnique({ where: { id } });
+    if (!row) throw new NotFoundException('Respons tidak ditemukan');
+    return row;
+  }
+
+  async update(id: number, data: Partial<SubmitDto>) {
+    await this.findOne(id);
+    return this.prisma.surveiKepuasan.update({ where: { id }, data });
+  }
+
+  async remove(id: number) {
+    await this.findOne(id);
+    return this.prisma.surveiKepuasan.delete({ where: { id } });
+  }
+
   async getStats() {
     const rows = await this.prisma.surveiKepuasan.findMany();
     const n = rows.length;
-    if (n === 0) return { total: 0, usability: null, konten: null, overall: null, rows: [] };
+    if (n === 0) return { total: 0, usability: null, konten: null, kepuasan: null, avgU: 0, avgK: 0, avgS: 0 };
 
     const avg = (field: keyof typeof rows[0]) =>
       +(rows.reduce((s, r) => s + (r[field] as number), 0) / n).toFixed(2);
