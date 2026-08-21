@@ -15,6 +15,7 @@ import { PengaduanModule } from './pengaduan/pengaduan.module';
 import { StatsModule } from './stats/stats.module';
 import { IndikatorBulananModule } from './indikator-bulanan/indikator-bulanan.module';
 import { PortalDaerahModule } from './portal-daerah/portal-daerah.module';
+import { KepuasanModule } from './kepuasan/kepuasan.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { PortalDaerahModule } from './portal-daerah/portal-daerah.module';
     StatsModule,
     IndikatorBulananModule,
     PortalDaerahModule,
+    KepuasanModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

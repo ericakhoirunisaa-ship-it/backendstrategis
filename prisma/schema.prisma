@@ -175,3 +175,28 @@ model PortalDaerahRow {
   data      Json
   urutan    Int                 @default(0)
 }
+
+model SurveiKepuasan {
+  id        Int      @id @default(autoincrement())
+  // Kemudahan Penggunaan (1-5)
+  u1        Int
+  u2        Int
+  u3        Int
+  u4        Int
+  u5        Int
+  // Kelengkapan & Konten (1-5)
+  k1        Int
+  k2        Int
+  k3        Int
+  k4        Int
+  k5        Int
+  // Kepuasan Keseluruhan (1-5)
+  s1        Int
+  s2        Int
+  s3        Int
+  s4        Int
+  // Opsional
+  nama      String?
+  instansi  String?
+  createdAt DateTime @default(now())
+}
