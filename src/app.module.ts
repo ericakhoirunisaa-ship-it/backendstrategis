@@ -16,6 +16,8 @@ import { StatsModule } from './stats/stats.module';
 import { IndikatorBulananModule } from './indikator-bulanan/indikator-bulanan.module';
 import { PortalDaerahModule } from './portal-daerah/portal-daerah.module';
 import { KepuasanModule } from './kepuasan/kepuasan.module';
+import { QuotesModule } from './quotes/quotes.module';
+import { MusikModule } from './musik/musik.module';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { KepuasanModule } from './kepuasan/kepuasan.module';
     IndikatorBulananModule,
     PortalDaerahModule,
     KepuasanModule,
+    QuotesModule,
+    MusikModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
